@@ -1,0 +1,65 @@
+{
+    "intents": [
+        {
+            "tag": "greeting",
+            "patterns": [
+                "hi",
+                "hello",
+                "hey",
+                "good morning",
+                "good evening"
+            ],
+            "responses": [
+                "Hello! 👋 Welcome to the AI Registration Assistant."
+            ]
+        },
+        {
+            "tag": "registration",
+            "patterns": [
+                "I want to register",
+                "How can I register",
+                "I want internship registration",
+                "register me",
+                "start registration"
+            ],
+            "responses": [
+                "Sure! Let's start your registration."
+            ]
+        },
+        {
+            "tag": "program",
+            "patterns": [
+                "what programs are available",
+                "which internship is available",
+                "show programs",
+                "available courses"
+            ],
+            "responses": [
+                "We offer AI, Data Science, Machine Learning and related programs."
+            ]
+        },
+        {
+            "tag": "faq",
+            "patterns": [
+                "what is this internship",
+                "tell me about internship",
+                "what is the program"
+            ],
+            "responses": [
+                "This is an AI and Data Science internship program."
+            ]
+        },
+        {
+            "tag": "goodbye",
+            "patterns": [
+                "bye",
+                "goodbye",
+                "see you",
+                "exit"
+            ],
+            "responses": [
+                "Goodbye! 👋"
+            ]
+        }
+    ]
+}
