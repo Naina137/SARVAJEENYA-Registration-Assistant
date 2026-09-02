@@ -11,8 +11,7 @@ def home():
 
 @app.route("/chat", methods=["POST"])
 def chat_api():
-
-    data = request.get_json()
+    data = request.get_json(silent=True) or {}
 
     message = data.get("message", "").strip()
 
@@ -21,12 +20,19 @@ def chat_api():
             "response": "Please enter a message."
         })
 
-    response = chat(message)
+    try:
+        response = chat(message)
 
-    return jsonify({
-        "response": response
-    })
+        return jsonify({
+            "response": response
+        })
+
+    except Exception as e:
+        print("Chat error:", e)
+        return jsonify({
+            "response": "Sorry, something went wrong. Please try again."
+        }), 500
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=5000, debug=True)
