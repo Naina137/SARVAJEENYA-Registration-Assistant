@@ -2,16 +2,17 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>AI Registration Assistant</title>
+    <title>SARVAJANEEYA | Smart Internship Registration</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Cinzel:wght@600;700&display=swap"
         rel="stylesheet">
 
     <style>
@@ -25,61 +26,60 @@
             --navy: #071a3a;
             --blue: #1264e8;
             --blue-dark: #0847b8;
-            --blue-light: #eaf3ff;
-            --white: #ffffff;
-            --text: #10213d;
+            --text: #14233d;
             --muted: #71809a;
             --border: #dce7f5;
+            --white: #ffffff;
         }
 
         body {
             min-height: 100vh;
-            font-family: "DM Sans", sans-serif;
+            padding: 24px;
 
             display: flex;
             justify-content: center;
             align-items: center;
 
-            padding: 24px;
+            font-family: "Poppins", sans-serif;
 
             background:
                 radial-gradient(circle at 10% 10%,
-                    rgba(18, 100, 232, 0.22),
+                    rgba(18, 100, 232, 0.18),
                     transparent 30%),
                 radial-gradient(circle at 90% 90%,
-                    rgba(8, 71, 184, 0.16),
-                    transparent 32%),
+                    rgba(8, 71, 184, 0.13),
+                    transparent 30%),
                 #edf4fc;
         }
 
-        .chat-container {
-            width: 900px;
+        .app {
+            width: 950px;
             max-width: 100%;
-
-            height: 720px;
+            height: 730px;
             max-height: 94vh;
-
-            background: var(--white);
-
-            border-radius: 26px;
-
-            overflow: hidden;
 
             display: flex;
             flex-direction: column;
 
-            border: 1px solid rgba(18, 100, 232, 0.12);
+            overflow: hidden;
+
+            background: var(--white);
+
+            border: 1px solid var(--border);
+            border-radius: 28px;
 
             box-shadow:
                 0 30px 80px rgba(7, 26, 58, 0.18);
         }
 
+        /* HEADER */
+
         .header {
-            padding: 25px 30px;
+            min-height: 94px;
+            padding: 18px 28px;
 
             display: flex;
             align-items: center;
-
             gap: 16px;
 
             color: white;
@@ -87,53 +87,51 @@
             background:
                 linear-gradient(135deg,
                     #071a3a,
-                    #0c4fc4 55%,
-                    #1674f5);
+                    #0b3f96,
+                    #1671e8);
         }
 
-        .brand {
-            width: 52px;
-            height: 52px;
+        .logo {
+            width: 56px;
+            height: 56px;
+
+            flex-shrink: 0;
 
             display: flex;
             justify-content: center;
             align-items: center;
 
-            border-radius: 15px;
+            border-radius: 16px;
 
             background: rgba(255, 255, 255, 0.12);
 
             border: 1px solid rgba(255, 255, 255, 0.25);
 
-            font-family: "Space Grotesk", sans-serif;
+            font-family: "Cinzel", serif;
 
-            font-size: 16px;
-
+            font-size: 18px;
             font-weight: 700;
-
-            letter-spacing: 1px;
         }
 
-        .header-content {
+        .header-text {
             flex: 1;
         }
 
-        .header h1 {
-            font-family: "Space Grotesk", sans-serif;
+        .header-text h1 {
+            font-family: "Cinzel", serif;
 
             font-size: 25px;
-
             font-weight: 700;
 
-            letter-spacing: -0.5px;
+            letter-spacing: 1.5px;
         }
 
-        .header p {
+        .header-text p {
             margin-top: 5px;
 
-            font-size: 12px;
+            font-size: 10px;
 
-            letter-spacing: 1.2px;
+            letter-spacing: 1.5px;
 
             text-transform: uppercase;
 
@@ -141,18 +139,19 @@
         }
 
         .status {
-            font-size: 12px;
+            padding: 8px 14px;
 
-            font-weight: 600;
+            border-radius: 30px;
 
-            padding: 8px 13px;
-
-            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 500;
 
             background: rgba(255, 255, 255, 0.12);
 
             border: 1px solid rgba(255, 255, 255, 0.18);
         }
+
+        /* CHAT */
 
         #messages {
             flex: 1;
@@ -173,18 +172,88 @@
 
         #messages::-webkit-scrollbar-thumb {
             background: #c7d7ed;
-
-            border-radius: 10px;
+            border-radius: 20px;
         }
 
+        /* WELCOME */
+
+        .welcome {
+            max-width: 680px;
+
+            margin: 55px auto 45px;
+
+            text-align: center;
+        }
+
+        .welcome-line {
+            width: 60px;
+            height: 4px;
+
+            margin: 0 auto 15px;
+
+            border-radius: 10px;
+
+            background:
+                linear-gradient(90deg,
+                    #1264e8,
+                    #62a4ff);
+        }
+
+        .welcome-title {
+            color: var(--navy);
+
+            font-family: "Cinzel", serif;
+
+            font-size: 31px;
+            line-height: 1.25;
+
+            font-weight: 700;
+        }
+
+        .welcome-subtitle {
+            margin-top: 15px;
+
+            color: var(--muted);
+
+            font-size: 13px;
+
+            line-height: 1.8;
+        }
+
+        .welcome-box {
+            margin-top: 28px;
+
+            padding: 20px 24px;
+
+            color: #33445e;
+
+            background: white;
+
+            border: 1px solid var(--border);
+
+            border-radius: 18px;
+
+            font-size: 13px;
+
+            line-height: 1.7;
+
+            box-shadow:
+                0 8px 25px rgba(16, 33, 61, 0.05);
+        }
+
+        .welcome-box b {
+            color: var(--blue);
+        }
+
+        /* NORMAL MESSAGES */
+
         .message-wrapper {
+            max-width: 72%;
+
+            margin-bottom: 20px;
+
             display: flex;
-
             flex-direction: column;
-
-            margin-bottom: 22px;
-
-            max-width: 75%;
         }
 
         .message-wrapper.bot {
@@ -193,22 +262,21 @@
 
         .message-wrapper.user {
             margin-left: auto;
-
             align-items: flex-end;
         }
 
         .message {
-            padding: 15px 18px;
+            padding: 14px 17px;
 
-            border-radius: 18px;
+            border-radius: 17px;
 
             font-size: 14px;
 
-            line-height: 1.6;
+            line-height: 1.7;
 
             white-space: pre-wrap;
 
-            animation: messageAppear 0.25s ease;
+            animation: appear 0.25s ease;
         }
 
         .bot .message {
@@ -229,37 +297,121 @@
 
             background:
                 linear-gradient(135deg,
-                    var(--blue),
-                    var(--blue-dark));
+                    #1671e8,
+                    #0847b8);
 
             border-top-right-radius: 5px;
 
             box-shadow:
-                0 8px 22px rgba(18, 100, 232, 0.22);
+                0 8px 20px rgba(18, 100, 232, 0.22);
         }
 
-        .message-label {
+        .label {
             margin-top: 6px;
 
             padding: 0 5px;
 
+            color: #8190a6;
+
             font-size: 10px;
-
-            color: var(--muted);
-
-            letter-spacing: 0.5px;
         }
+
+        /* CONFIRMATION */
+
+        .confirmation-wrapper {
+            width: 100%;
+            max-width: 760px;
+
+            margin: 20px auto 30px;
+
+            animation: appear 0.3s ease;
+        }
+
+        .confirmation-message {
+            padding: 25px 28px;
+
+            color: var(--text);
+
+            background: white;
+
+            border: 1px solid var(--border);
+
+            border-left: 4px solid var(--blue);
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 10px 30px rgba(7, 26, 58, 0.08);
+
+            font-size: 14px;
+
+            line-height: 2;
+
+            white-space: pre-wrap;
+        }
+
+        .confirmation-message strong {
+            color: var(--navy);
+
+            font-weight: 700;
+        }
+
+        /* CONTROLS */
+
+        .controls {
+            display: flex;
+
+            justify-content: center;
+
+            gap: 10px;
+
+            padding: 12px 20px 8px;
+
+            background: white;
+
+            border-top: 1px solid #e1eaf4;
+        }
+
+        .control-button {
+            padding: 8px 16px;
+
+            border-radius: 10px;
+
+            color: #24518e;
+
+            background: #f7faff;
+
+            border: 1px solid #d5e2f1;
+
+            font-family: "Poppins", sans-serif;
+
+            font-size: 11px;
+
+            font-weight: 600;
+
+            cursor: pointer;
+
+            transition: 0.2s;
+        }
+
+        .control-button:hover {
+            background: #edf5ff;
+
+            border-color: #a9c6ec;
+
+            transform: translateY(-1px);
+        }
+
+        /* INPUT */
 
         .input-area {
             display: flex;
 
-            gap: 12px;
+            gap: 10px;
 
-            padding: 17px 20px;
+            padding: 12px 20px 18px;
 
             background: white;
-
-            border-top: 1px solid var(--border);
         }
 
         #message {
@@ -267,11 +419,9 @@
 
             min-width: 0;
 
-            padding: 14px 16px;
+            height: 50px;
 
-            border: 1.5px solid #cfdbeb;
-
-            border-radius: 14px;
+            padding: 0 17px;
 
             outline: none;
 
@@ -279,28 +429,29 @@
 
             background: #fbfdff;
 
-            font-family: "DM Sans", sans-serif;
+            border: 1.5px solid #ccd9e9;
+
+            border-radius: 14px;
+
+            font-family: "Poppins", sans-serif;
 
             font-size: 14px;
-
-            transition: 0.2s;
-        }
-
-        #message::placeholder {
-            color: #8795aa;
         }
 
         #message:focus {
             border-color: var(--blue);
 
             box-shadow:
-                0 0 0 4px rgba(18, 100, 232, 0.09);
+                0 0 0 4px rgba(18, 100, 232, 0.08);
         }
 
-        button {
-            min-width: 100px;
+        #message::placeholder {
+            color: #8b98aa;
+        }
 
-            padding: 0 20px;
+        .send-button {
+            width: 105px;
+            height: 50px;
 
             border: none;
 
@@ -310,45 +461,48 @@
 
             background:
                 linear-gradient(135deg,
-                    var(--blue),
-                    var(--blue-dark));
+                    #1671e8,
+                    #0847b8);
 
-            font-family: "Space Grotesk", sans-serif;
+            font-family: "Poppins", sans-serif;
 
             font-size: 13px;
 
-            font-weight: 700;
+            font-weight: 600;
 
             cursor: pointer;
 
-            transition: 0.2s;
-
             box-shadow:
                 0 8px 20px rgba(18, 100, 232, 0.20);
+
+            transition: 0.2s;
         }
 
-        button:hover {
+        .send-button:hover {
             transform: translateY(-1px);
-
-            box-shadow:
-                0 11px 25px rgba(18, 100, 232, 0.28);
         }
 
-        button:active {
-            transform: translateY(0);
+        .send-button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
         }
 
-        .hint {
+        /* FOOTER */
+
+        .footer {
+            padding: 0 15px 12px;
+
             text-align: center;
 
-            padding: 0 15px 14px;
+            color: #8a97aa;
 
-            color: #8492a8;
+            background: white;
 
             font-size: 10px;
         }
 
-        @keyframes messageAppear {
+        @keyframes appear {
 
             from {
                 opacity: 0;
@@ -362,30 +516,30 @@
 
         }
 
+        /* MOBILE */
+
         @media (max-width: 700px) {
 
             body {
                 padding: 0;
             }
 
-            .chat-container {
+            .app {
                 height: 100vh;
-
                 max-height: none;
-
                 border-radius: 0;
             }
 
             .header {
-                padding: 20px;
+                padding: 17px;
             }
 
-            .header h1 {
+            .header-text h1 {
                 font-size: 20px;
             }
 
-            .header p {
-                font-size: 9px;
+            .header-text p {
+                font-size: 8px;
             }
 
             .status {
@@ -396,18 +550,36 @@
                 padding: 20px 15px;
             }
 
+            .welcome {
+                margin: 30px auto 35px;
+            }
+
+            .welcome-title {
+                font-size: 24px;
+            }
+
             .message-wrapper {
                 max-width: 88%;
             }
 
-            .input-area {
-                padding: 12px;
+            .confirmation-wrapper {
+                max-width: 100%;
             }
 
-            button {
-                min-width: 80px;
+            .confirmation-message {
+                padding: 20px 18px;
 
-                padding: 0 14px;
+                font-size: 13px;
+
+                line-height: 1.9;
+            }
+
+            .input-area {
+                padding: 10px;
+            }
+
+            .send-button {
+                width: 80px;
             }
 
         }
@@ -418,22 +590,24 @@
 
 <body>
 
-    <div class="chat-container">
+
+    <div class="app">
+
+
+        <!-- HEADER -->
 
         <div class="header">
 
-            <div class="brand">
-                AI
+            <div class="logo">
+                S
             </div>
 
-            <div class="header-content">
+            <div class="header-text">
 
-                <h1>
-                    AI Registration Assistant
-                </h1>
+                <h1>SARVAJANEEYA</h1>
 
                 <p>
-                    NLP Powered Internship Registration
+                    SMART INTERNSHIP REGISTRATION
                 </p>
 
             </div>
@@ -445,22 +619,33 @@
         </div>
 
 
+        <!-- CHAT -->
+
         <div id="messages">
 
-            <div class="message-wrapper bot">
+            <div class="welcome">
 
-                <div class="message">
+                <div class="welcome-line"></div>
 
-                    Welcome to the AI Registration Assistant.
-
-                    I can help you complete your internship registration.
-
-                    Type Hello, Hi, or Namaste to begin.
-
+                <div class="welcome-title">
+                    Welcome to SARVAJANEEYA.
                 </div>
 
-                <div class="message-label">
-                    AI Assistant
+                <div class="welcome-subtitle">
+                    Your intelligent registration assistant is here
+                    to help you complete your internship registration
+                    with ease.
+                </div>
+
+                <div class="welcome-box">
+
+                    Type
+                    <b>Hi</b>,
+                    <b>Hello</b>,
+                    or
+                    <b>Namaste</b>
+                    to begin.
+
                 </div>
 
             </div>
@@ -468,142 +653,1334 @@
         </div>
 
 
-        <div class="input-area">
+        <!-- CONTROLS -->
 
-            <input id="message" type="text" placeholder="Enter your message..." autocomplete="off"
-                onkeydown="handleKey(event)">
+        <div class="controls">
 
-            <button onclick="sendMessage()">
-                Send
+            <button class="control-button" id="voiceButton" onclick="toggleVoice()">
+
+                Voice On
+
+            </button>
+
+
+            <button class="control-button" onclick="newRegistration()">
+
+                Start New Registration
+
             </button>
 
         </div>
 
 
-        <div class="hint">
-            You can type Namaste to start registration
+        <!-- INPUT -->
+
+        <div class="input-area">
+
+            <input id="message" type="text" placeholder="Type your message here" autocomplete="off">
+
+
+            <button class="send-button" id="sendButton">
+
+                Send
+
+            </button>
+
         </div>
+
+
+        <div class="footer">
+            Powered by SARVAJANEEYA
+        </div>
+
 
     </div>
 
 
     <script>
 
-        async function sendMessage() {
 
-            const input = document.getElementById("message");
+        /* ==========================================================
+           VOICE
+           ========================================================== */
 
-            const message = input.value.trim();
+        let voiceEnabled = true;
 
-            if (!message) {
+        let voices = [];
+
+
+        function loadVoices() {
+
+            if (
+                !("speechSynthesis" in window)
+            ) {
                 return;
             }
 
-            addMessage(message, "user");
-
-            input.value = "";
-
-            input.disabled = true;
+            voices =
+                window.speechSynthesis.getVoices();
+        }
 
 
-            try {
-
-                const response = await fetch("/chat", {
-
-                    method: "POST",
-
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-
-                    body: JSON.stringify({
-                        message: message
-                    })
-
-                });
+        loadVoices();
 
 
-                const data = await response.json();
+        if (
+            "speechSynthesis" in window
+        ) {
 
+            window.speechSynthesis.onvoiceschanged =
+                function () {
 
-                addMessage(
-                    data.response || "Please try again.",
-                    "bot"
-                );
+                    loadVoices();
 
-
-            } catch (error) {
-
-                addMessage(
-                    "Unable to connect to the assistant. Please try again.",
-                    "bot"
-                );
-
-            }
-
-
-            input.disabled = false;
-
-            input.focus();
+                };
 
         }
 
 
-        function addMessage(text, type) {
+        /* ==========================================================
+           FEMALE VOICE
+           ========================================================== */
 
-            const messages = document.getElementById("messages");
+        function getFemaleVoice() {
+
+            loadVoices();
+
+            if (!voices.length) {
+                return null;
+            }
 
 
-            const wrapper = document.createElement("div");
+            const preferredNames = [
+
+                "heera",
+                "zira",
+                "samantha",
+                "karen",
+                "female",
+                "priya",
+                "neerja"
+
+            ];
+
+
+            for (
+                const name of preferredNames
+            ) {
+
+                const voice =
+                    voices.find(
+                        v =>
+                            v.name
+                                .toLowerCase()
+                                .includes(name)
+                    );
+
+
+                if (voice) {
+                    return voice;
+                }
+
+            }
+
+
+            const indianVoice =
+                voices.find(
+                    v =>
+                        v.lang
+                            .toLowerCase()
+                            .includes("en-in")
+                );
+
+
+            if (indianVoice) {
+                return indianVoice;
+            }
+
+
+            const englishVoice =
+                voices.find(
+                    v =>
+                        v.lang
+                            .toLowerCase()
+                            .startsWith("en")
+                );
+
+
+            return englishVoice || voices[0];
+        }
+
+
+        /* ==========================================================
+           SPEAK
+           ========================================================== */
+
+        function speak(text) {
+
+            if (!voiceEnabled) {
+                return;
+            }
+
+            if (
+                !("speechSynthesis" in window)
+            ) {
+                return;
+            }
+
+
+            const cleanText =
+                text
+                    .replace(/\n/g, " ")
+                    .replace(/\s+/g, " ")
+                    .trim();
+
+
+            if (!cleanText) {
+                return;
+            }
+
+
+            window.speechSynthesis.cancel();
+
+            window.speechSynthesis.resume();
+
+
+            const utterance =
+                new SpeechSynthesisUtterance(
+                    cleanText
+                );
+
+
+            const selectedVoice =
+                getFemaleVoice();
+
+
+            if (selectedVoice) {
+
+                utterance.voice =
+                    selectedVoice;
+
+                utterance.lang =
+                    selectedVoice.lang;
+
+            } else {
+
+                utterance.lang =
+                    "en-IN";
+
+            }
+
+
+            utterance.rate =
+                0.88;
+
+            utterance.pitch =
+                1.15;
+
+            utterance.volume =
+                1;
+
+
+            window.speechSynthesis.speak(
+                utterance
+            );
+        }
+
+
+        /* ==========================================================
+           VOICE BUTTON
+           ========================================================== */
+
+        function toggleVoice() {
+
+            const button =
+                document.getElementById(
+                    "voiceButton"
+                );
+
+
+            if (
+                !("speechSynthesis" in window)
+            ) {
+
+                alert(
+                    "Voice is not supported by this browser."
+                );
+
+                return;
+            }
+
+
+            voiceEnabled =
+                !voiceEnabled;
+
+
+            if (voiceEnabled) {
+
+                button.textContent =
+                    "Voice Off";
+
+
+                speak(
+                    "Voice is now enabled."
+                );
+
+            } else {
+
+                button.textContent =
+                    "Voice On";
+
+
+                window.speechSynthesis.cancel();
+
+            }
+
+        }
+
+
+        /* ==========================================================
+           REGISTRATION STATE
+           ========================================================== */
+
+        let registrationStep =
+            "greeting";
+
+        let userName =
+            "";
+
+        let userEmail =
+            "";
+
+        let selectedCourse =
+            "";
+
+
+        /* ==========================================================
+           ADD MESSAGE
+           ========================================================== */
+
+        function addMessage(
+            text,
+            type
+        ) {
+
+            const messages =
+                document.getElementById(
+                    "messages"
+                );
+
+
+            const wrapper =
+                document.createElement(
+                    "div"
+                );
+
 
             wrapper.className =
-                "message-wrapper " + type;
+                "message-wrapper " +
+                type;
 
 
-            const messageDiv =
-                document.createElement("div");
+            const message =
+                document.createElement(
+                    "div"
+                );
 
-            messageDiv.className = "message";
 
-            messageDiv.textContent = text;
+            message.className =
+                "message";
+
+
+            message.textContent =
+                text;
 
 
             const label =
-                document.createElement("div");
+                document.createElement(
+                    "div"
+                );
 
-            label.className = "message-label";
+
+            label.className =
+                "label";
+
 
             label.textContent =
                 type === "user"
                     ? "You"
-                    : "AI Assistant";
+                    : "SARVAJANEEYA";
 
 
-            wrapper.appendChild(messageDiv);
+            wrapper.appendChild(
+                message
+            );
 
-            wrapper.appendChild(label);
+
+            wrapper.appendChild(
+                label
+            );
 
 
-            messages.appendChild(wrapper);
+            messages.appendChild(
+                wrapper
+            );
+
+
+            messages.scrollTop =
+                messages.scrollHeight;
+        }
+
+
+        /* ==========================================================
+           BOT MESSAGE
+           ========================================================== */
+
+        function botMessage(text) {
+
+            addMessage(
+                text,
+                "bot"
+            );
+
+            speak(text);
+        }
+
+
+        /* ==========================================================
+           GREETING
+           ========================================================== */
+
+        function detectGreeting(
+            message
+        ) {
+
+            const text =
+                message
+                    .toLowerCase()
+                    .trim();
+
+
+            if (
+                text === "hi" ||
+                text === "hii" ||
+                text === "hiii"
+            ) {
+
+                return (
+                    "Hi! Welcome to SARVAJANEEYA. " +
+                    "I am your smart internship registration assistant. " +
+                    "May I know your full name?"
+                );
+
+            }
+
+
+            if (
+                text === "hello" ||
+                text === "hey"
+            ) {
+
+                return (
+                    "Hello! Welcome to SARVAJANEEYA. " +
+                    "I am here to assist you with your internship registration. " +
+                    "May I know your full name?"
+                );
+
+            }
+
+
+            if (
+                text === "namaste" ||
+                text === "namaskar"
+            ) {
+
+                return (
+                    "Namaste! Welcome to SARVAJANEEYA. " +
+                    "I am your smart internship registration assistant. " +
+                    "May I know your full name?"
+                );
+
+            }
+
+
+            return null;
+        }
+
+
+        /* ==========================================================
+           EMAIL VALIDATION
+           ========================================================== */
+
+        function isValidEmail(
+            email
+        ) {
+
+            const pattern =
+                /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+
+
+            return pattern.test(
+                email
+            );
+        }
+
+
+        /* ==========================================================
+           REGISTRATION NUMBER
+           ========================================================== */
+
+        function generateRegistrationNumber() {
+
+            const randomNumber =
+                Math.floor(
+                    100000 +
+                    Math.random() * 900000
+                );
+
+
+            return "SJY-" +
+                randomNumber;
+        }
+
+
+        /* ==========================================================
+           GET REGISTRATION NUMBER FROM BACKEND
+           ========================================================== */
+
+        function getRegistrationNumber(
+            data
+        ) {
+
+            return (
+                data.registration_number ||
+                data.registration_id ||
+                data.registrationNumber ||
+                data.registrationId ||
+                data.id ||
+                generateRegistrationNumber()
+            );
+        }
+
+
+        /* ==========================================================
+           SAFE HTML
+           ========================================================== */
+
+        function escapeHTML(text) {
+
+            return String(text)
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+        }
+
+
+        /* ==========================================================
+           SUCCESSFUL REGISTRATION
+           ========================================================== */
+
+        function showRegistrationConfirmation(
+            registrationId
+        ) {
+
+            if (
+                !registrationId
+            ) {
+
+                registrationId =
+                    generateRegistrationNumber();
+
+            }
+
+
+            const messages =
+                document.getElementById(
+                    "messages"
+                );
+
+
+            const wrapper =
+                document.createElement(
+                    "div"
+                );
+
+
+            wrapper.className =
+                "confirmation-wrapper";
+
+
+            const message =
+                document.createElement(
+                    "div"
+                );
+
+
+            message.className =
+                "confirmation-message";
+
+
+            message.innerHTML = `
+
+<strong>If your registration details are correct and confirmed, your registration will be successfully completed.</strong>
+
+<strong>Registration Successfully Completed</strong>
+
+Your internship registration has been successfully confirmed.
+
+<strong>Name:</strong> ${escapeHTML(userName)}
+
+<strong>Registration Number:</strong> ${escapeHTML(registrationId)}
+
+<strong>Email:</strong> ${escapeHTML(userEmail)}
+
+<strong>Registered Course:</strong> ${escapeHTML(selectedCourse)}
+
+<strong>Registration Status:</strong> Confirmed
+
+Your registration details have been successfully recorded in the SARVAJANEEYA system.
+
+Thank you for choosing SARVAJANEEYA. We wish you a successful and rewarding internship journey.
+
+If you want to register again, please click "Start New Registration" below.
+`;
+
+
+            const label =
+                document.createElement(
+                    "div"
+                );
+
+
+            label.className =
+                "label";
+
+
+            label.textContent =
+                "SARVAJANEEYA";
+
+
+            wrapper.appendChild(
+                message
+            );
+
+
+            wrapper.appendChild(
+                label
+            );
+
+
+            messages.appendChild(
+                wrapper
+            );
 
 
             messages.scrollTop =
                 messages.scrollHeight;
 
+
+            speak(
+                `If your registration details are correct and confirmed, your registration will be successfully completed.
+
+Registration Successfully Completed.
+
+Your internship registration has been successfully confirmed.
+
+Name: ${userName}.
+Registration Number: ${registrationId}.
+Email: ${userEmail}.
+Registered Course: ${selectedCourse}.
+Registration Status: Confirmed.
+
+Thank you for choosing SARVAJANEEYA. We wish you a successful and rewarding internship journey.`
+            );
+
+
+            registrationStep =
+                "completed";
         }
 
 
-        function handleKey(event) {
+        /* ==========================================================
+           ALREADY REGISTERED
+           ========================================================== */
 
-            if (event.key === "Enter") {
+        function showAlreadyRegistered(
+            data
+        ) {
 
-                event.preventDefault();
+            const registrationId =
+                data.registration_number ||
+                data.registration_id ||
+                data.registrationNumber ||
+                data.registrationId ||
+                data.id ||
+                generateRegistrationNumber();
 
-                sendMessage();
+
+            const name =
+                data.name ||
+                userName ||
+                "Registered User";
+
+
+            const email =
+                data.email ||
+                userEmail ||
+                "Registered Email";
+
+
+            const course =
+                data.course ||
+                selectedCourse ||
+                "Registered Course";
+
+
+            const messages =
+                document.getElementById(
+                    "messages"
+                );
+
+
+            const wrapper =
+                document.createElement(
+                    "div"
+                );
+
+
+            wrapper.className =
+                "confirmation-wrapper";
+
+
+            const message =
+                document.createElement(
+                    "div"
+                );
+
+
+            message.className =
+                "confirmation-message";
+
+
+            message.innerHTML = `
+
+<strong>Registration Already Confirmed</strong>
+
+Your internship registration has already been successfully completed and confirmed.
+
+<strong>Name:</strong> ${escapeHTML(name)}
+
+<strong>Registration Number:</strong> ${escapeHTML(registrationId)}
+
+<strong>Email:</strong> ${escapeHTML(email)}
+
+<strong>Registered Course:</strong> ${escapeHTML(course)}
+
+<strong>Registration Status:</strong> Confirmed
+
+No further action is required for your current registration.
+
+Thank you for choosing SARVAJANEEYA. We wish you all the best for your internship journey.
+
+If you want to register again, please click "Start New Registration" below.
+`;
+
+
+            const label =
+                document.createElement(
+                    "div"
+                );
+
+
+            label.className =
+                "label";
+
+
+            label.textContent =
+                "SARVAJANEEYA";
+
+
+            wrapper.appendChild(
+                message
+            );
+
+
+            wrapper.appendChild(
+                label
+            );
+
+
+            messages.appendChild(
+                wrapper
+            );
+
+
+            messages.scrollTop =
+                messages.scrollHeight;
+
+
+            speak(
+                `Registration Already Confirmed.
+
+Your internship registration has already been successfully completed and confirmed.
+
+Registration Number: ${registrationId}.
+
+No further action is required for your current registration.`
+            );
+
+
+            registrationStep =
+                "completed";
+        }
+
+
+        /* ==========================================================
+           SEND MESSAGE
+           ========================================================== */
+
+        async function sendMessage() {
+
+            const input =
+                document.getElementById(
+                    "message"
+                );
+
+
+            const sendButton =
+                document.getElementById(
+                    "sendButton"
+                );
+
+
+            const message =
+                input.value.trim();
+
+
+            if (!message) {
+                return;
+            }
+
+
+            addMessage(
+                message,
+                "user"
+            );
+
+
+            input.value =
+                "";
+
+            input.disabled =
+                true;
+
+            sendButton.disabled =
+                true;
+
+
+            /* ================= GREETING ================= */
+
+            if (
+                registrationStep === "greeting"
+            ) {
+
+                const greeting =
+                    detectGreeting(
+                        message
+                    );
+
+
+                if (greeting) {
+
+                    registrationStep =
+                        "name";
+
+
+                    botMessage(
+                        greeting
+                    );
+
+                } else {
+
+                    botMessage(
+                        "Please say Hi, Hello, or Namaste to begin your registration."
+                    );
+
+                }
+
+
+                input.disabled =
+                    false;
+
+                sendButton.disabled =
+                    false;
+
+                input.focus();
+
+                return;
+            }
+
+
+            /* ================= NAME ================= */
+
+            if (
+                registrationStep === "name"
+            ) {
+
+                const namePattern =
+                    /^[A-Za-z][A-Za-z .'-]{1,60}$/;
+
+
+                if (
+                    !namePattern.test(
+                        message
+                    )
+                ) {
+
+                    botMessage(
+                        "Please enter your valid full name."
+                    );
+
+                } else {
+
+                    userName =
+                        message;
+
+
+                    registrationStep =
+                        "email";
+
+
+                    botMessage(
+                        `Thank you, ${userName}. Please enter your email address.`
+                    );
+
+                }
+
+
+                input.disabled =
+                    false;
+
+                sendButton.disabled =
+                    false;
+
+                input.focus();
+
+                return;
+            }
+
+
+            /* ================= EMAIL ================= */
+
+            if (
+                registrationStep === "email"
+            ) {
+
+                if (
+                    !isValidEmail(
+                        message
+                    )
+                ) {
+
+                    botMessage(
+                        "The email address you entered is not valid. Please enter a valid email address."
+                    );
+
+                } else {
+
+                    userEmail =
+                        message;
+
+
+                    registrationStep =
+                        "course";
+
+
+                    botMessage(
+                        "Thank you. Your email address has been validated successfully. Please enter the course you would like to register for."
+                    );
+
+                }
+
+
+                input.disabled =
+                    false;
+
+                sendButton.disabled =
+                    false;
+
+                input.focus();
+
+                return;
+            }
+
+
+            /* ================= COURSE ================= */
+
+            if (
+                registrationStep === "course"
+            ) {
+
+                selectedCourse =
+                    message;
+
+
+                try {
+
+                    const response =
+                        await fetch(
+                            "/chat",
+                            {
+
+                                method: "POST",
+
+                                headers: {
+                                    "Content-Type":
+                                        "application/json"
+                                },
+
+                                body:
+                                    JSON.stringify({
+
+                                        message:
+                                            `Complete internship registration. Name: ${userName}. Email: ${userEmail}. Course: ${selectedCourse}.`
+
+                                    })
+
+                            }
+                        );
+
+
+                    if (!response.ok) {
+
+                        throw new Error(
+                            "Registration failed"
+                        );
+
+                    }
+
+
+                    const data =
+                        await response.json();
+
+
+                    const backendResponse =
+                        (
+                            data.response ||
+                            ""
+                        ).toLowerCase();
+
+
+                    /* ALREADY REGISTERED */
+
+                    if (
+
+                        backendResponse.includes(
+                            "already"
+                        ) &&
+
+                        backendResponse.includes(
+                            "registration"
+                        )
+
+                    ) {
+
+                        showAlreadyRegistered(
+                            data
+                        );
+
+                    }
+
+                    /* SUCCESS */
+
+                    else {
+
+                        const registrationNumber =
+                            getRegistrationNumber(
+                                data
+                            );
+
+
+                        showRegistrationConfirmation(
+                            registrationNumber
+                        );
+
+                    }
+
+                }
+
+                catch (error) {
+
+                    console.error(
+                        "Registration error:",
+                        error
+                    );
+
+
+                    botMessage(
+                        `We are unable to complete your registration at the moment.
+
+Please try again. If the issue continues, click "Start New Registration" and begin again.`
+                    );
+
+                }
+
+
+                input.disabled =
+                    false;
+
+                sendButton.disabled =
+                    false;
+
+                input.focus();
+
+                return;
+            }
+
+
+            /* ================= COMPLETED ================= */
+
+            if (
+                registrationStep === "completed"
+            ) {
+
+                botMessage(
+                    'Your registration has already been completed. If you want to register again, please click "Start New Registration".'
+                );
+
+
+                input.disabled =
+                    false;
+
+                sendButton.disabled =
+                    false;
+
+                input.focus();
+
+                return;
+            }
+
+
+            /* ================= NORMAL CHAT ================= */
+
+            try {
+
+                const response =
+                    await fetch(
+                        "/chat",
+                        {
+
+                            method: "POST",
+
+                            headers: {
+                                "Content-Type":
+                                    "application/json"
+                            },
+
+                            body:
+                                JSON.stringify({
+                                    message:
+                                        message
+                                })
+
+                        }
+                    );
+
+
+                if (!response.ok) {
+
+                    throw new Error(
+                        "Server error"
+                    );
+
+                }
+
+
+                const data =
+                    await response.json();
+
+
+                botMessage(
+                    data.response ||
+                    "Please try again."
+                );
 
             }
 
+            catch (error) {
+
+                console.error(
+                    "Chat error:",
+                    error
+                );
+
+
+                botMessage(
+                    "Unable to connect to SARVAJANEEYA. Please try again."
+                );
+
+            }
+
+
+            input.disabled =
+                false;
+
+            sendButton.disabled =
+                false;
+
+            input.focus();
         }
+
+
+        /* ==========================================================
+           START NEW REGISTRATION
+           ========================================================== */
+
+        async function newRegistration() {
+
+            registrationStep =
+                "greeting";
+
+
+            userName =
+                "";
+
+            userEmail =
+                "";
+
+            selectedCourse =
+                "";
+
+
+            if (
+                "speechSynthesis" in window
+            ) {
+
+                window.speechSynthesis.cancel();
+
+            }
+
+
+            const messages =
+                document.getElementById(
+                    "messages"
+                );
+
+
+            messages.innerHTML =
+                "";
+
+
+            try {
+
+                await fetch(
+                    "/reset",
+                    {
+                        method: "POST"
+                    }
+                );
+
+            }
+
+            catch (error) {
+
+                console.error(
+                    "Reset error:",
+                    error
+                );
+
+            }
+
+
+            botMessage(
+                `Welcome to SARVAJANEEYA.
+
+Please say Hi, Hello, or Namaste to begin your internship registration.`
+            );
+
+
+            const input =
+                document.getElementById(
+                    "message"
+                );
+
+
+            input.disabled =
+                false;
+
+            input.value =
+                "";
+
+            input.focus();
+        }
+
+
+        /* ==========================================================
+           ENTER KEY
+           ========================================================== */
+
+        document
+            .getElementById("message")
+            .addEventListener(
+                "keydown",
+                function (event) {
+
+                    if (
+                        event.key === "Enter"
+                    ) {
+
+                        event.preventDefault();
+
+                        sendMessage();
+
+                    }
+
+                }
+            );
+
+
+        /* ==========================================================
+           SEND BUTTON
+           ========================================================== */
+
+        document
+            .getElementById("sendButton")
+            .addEventListener(
+                "click",
+                function () {
+
+                    sendMessage();
+
+                }
+            );
+
+
+        /* ==========================================================
+           INITIALIZE
+           ========================================================== */
+
+        window.addEventListener(
+            "load",
+            function () {
+
+                registrationStep =
+                    "greeting";
+
+
+                document
+                    .getElementById("message")
+                    .focus();
+
+
+                document
+                    .getElementById("voiceButton")
+                    .textContent =
+                    "Voice On";
+
+            }
+        );
 
     </script>
 

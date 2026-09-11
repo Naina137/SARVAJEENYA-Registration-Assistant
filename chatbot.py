@@ -1,11 +1,11 @@
 import json
 import random
-import re
 
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
 
 from nlp import preprocess
+
 from data import (
     extract_name,
     extract_email,
@@ -15,44 +15,60 @@ from data import (
 )
 
 
-# =========================================================
-# LOAD INTENTS
-# =========================================================
+# Load intents
 
-with open("intents.json", "r", encoding="utf-8") as file:
+with open(
+    "intents.json",
+    "r",
+    encoding="utf-8"
+) as file:
+
     data = json.load(file)
 
 
-# =========================================================
-# PREPARE TRAINING DATA
-# =========================================================
+# Prepare training data
 
 sentences = []
+
 labels = []
 
+
 for intent in data["intents"]:
+
     for pattern in intent["patterns"]:
-        sentences.append(preprocess(pattern))
-        labels.append(intent["tag"])
+
+        sentences.append(
+            preprocess(pattern)
+        )
+
+        labels.append(
+            intent["tag"]
+        )
 
 
-# =========================================================
-# TF-IDF + LOGISTIC REGRESSION
-# =========================================================
+# TF IDF
 
 vectorizer = TfidfVectorizer()
-X = vectorizer.fit_transform(sentences)
+
+X = vectorizer.fit_transform(
+    sentences
+)
+
+
+# Logistic Regression
 
 model = LogisticRegression()
-model.fit(X, labels)
 
+model.fit(
+    X,
+    labels
+)
 
-# =========================================================
-# INTENT PREDICTION
-# =========================================================
 
 def predict_intent(message):
+
     processed = preprocess(message)
+
     vector = vectorizer.transform([processed])
 
     return model.predict(vector)[0]
@@ -63,131 +79,142 @@ def get_response(intent):
     for item in data["intents"]:
 
         if item["tag"] == intent:
-            return random.choice(item["responses"])
 
-    return "I could not understand your request. Please try again."
+            return random.choice(
+                item["responses"]
+            )
 
 
-# =========================================================
-# REGISTRATION STATE
-# =========================================================
+    return "I did not understand that."
+
+
+# Registration state
 
 user_data = {}
+
 state = "start"
 
 
-# =========================================================
-# GREETING DETECTION
-# =========================================================
+def reset_chat():
+
+    global state
+    global user_data
+
+    state = "start"
+
+    user_data.clear()
+
 
 def is_greeting(message):
 
     text = message.strip().lower()
 
-    greetings = {
+
+    greetings = [
+
         "hello",
         "hi",
         "hey",
-        "hii",
-        "hiii",
-        "helo",
-        "hola",
         "namaste",
         "namaskar",
         "नमस्ते",
         "नमस्कार"
-    }
 
-    if text in greetings:
-        return True
-
-    # Handles phrases like:
-    # "hello assistant"
-    # "hi there"
-    # "namaste sir"
-
-    for greeting in greetings:
-
-        if text.startswith(greeting + " "):
-            return True
-
-    return False
+    ]
 
 
-# =========================================================
-# CHAT FUNCTION
-# =========================================================
+    return text in greetings
+
+
 
 def chat(message):
 
     global state
     global user_data
 
+
     message = message.strip()
 
-    if not message:
-        return "Please enter a message to continue."
+
+    # RESTART COMMAND
+
+    if message.lower() in [
+        "restart",
+        "start again",
+        "new registration",
+        "reset"
+    ]:
+
+        reset_chat()
+
+        state = "name"
+
+        return (
+            "Welcome back. "
+            "Let's start a new registration. "
+            "What is your name?"
+        )
 
 
-    # =====================================================
     # START
-    # =====================================================
 
     if state == "start":
 
-        # Direct greeting support
         if is_greeting(message):
 
             state = "name"
 
             return (
-                "Welcome to the AI Registration Assistant.\n\n"
-                "Let's begin your registration.\n"
+                "Welcome to SARWAJNIY. "
+                "Let's begin your registration. "
                 "What is your name?"
             )
 
-        # Registration intent
+
         intent = predict_intent(message)
+
 
         if intent == "greeting":
 
             state = "name"
 
             return (
-                "Welcome to the AI Registration Assistant.\n\n"
-                "Let's begin your registration.\n"
+                "Welcome to SARWAJNIY. "
                 "What is your name?"
             )
+
 
         if intent == "registration":
 
             state = "name"
 
             return (
-                "Sure. Let's start your registration.\n\n"
+                "Sure. Let's begin your registration. "
                 "What is your name?"
             )
+
 
         return get_response(intent)
 
 
-    # =====================================================
     # NAME
-    # =====================================================
 
     elif state == "name":
 
         name = extract_name(message)
 
-        # If extractor does not detect the name,
-        # check whether the complete message itself is a name.
 
         if not name:
 
             possible_name = message.strip()
 
-            if validate_name(possible_name):
+
+            if validate_name(
+                possible_name
+            ):
+
                 name = possible_name.title()
+
 
         if name and validate_name(name):
 
@@ -195,24 +222,25 @@ def chat(message):
 
             state = "email"
 
+
             return (
-                f"Nice to meet you, {name}.\n\n"
+                f"Nice to meet you, {name}. "
                 "Please enter your email address."
             )
 
+
         return (
-            "Please enter a valid name.\n\n"
-            "Example: Naina Kumari"
+            "Please enter a valid name. "
+            "For example, My name is Naina."
         )
 
 
-    # =====================================================
     # EMAIL
-    # =====================================================
 
     elif state == "email":
 
         email = extract_email(message)
+
 
         if email and validate_email(email):
 
@@ -220,39 +248,40 @@ def chat(message):
 
             state = "program"
 
+
             return (
-                "Email verified successfully.\n\n"
+                "Your email has been verified. "
                 "Which internship or program "
                 "would you like to register for?"
             )
 
+
         return (
-            "Please enter a valid email address.\n\n"
-            "Example: name@example.com"
+            "Please enter a valid email address."
         )
 
 
-    # =====================================================
     # PROGRAM
-    # =====================================================
 
     elif state == "program":
 
         program = message.strip()
 
+
         if len(program) < 2:
 
             return (
-                "Please enter a valid internship or "
-                "program name."
+                "Please enter a valid program name."
             )
+
 
         user_data["program"] = program
 
         state = "confirm"
 
+
         return (
-            "Please review your registration details.\n\n"
+            "Please confirm your registration details.\n\n"
             f"Name: {user_data['name']}\n"
             f"Email: {user_data['email']}\n"
             f"Program: {user_data['program']}\n\n"
@@ -260,38 +289,52 @@ def chat(message):
         )
 
 
-    # =====================================================
     # CONFIRMATION
-    # =====================================================
 
     elif state == "confirm":
 
-        answer = message.lower()
+        answer = message.strip().lower()
 
-        if answer in ["yes", "y", "confirm", "confirmed"]:
 
-            registration_id = save_registration(user_data)
+        if answer in [
+            "yes",
+            "y",
+            "confirm"
+        ]:
+
+            registration_id = save_registration(
+                user_data
+            )
+
 
             state = "completed"
 
+
             return (
-                "REGISTRATION SUCCESSFUL\n\n"
+                "Registration successful.\n\n"
                 f"Registration ID: {registration_id}\n"
                 f"Name: {user_data['name']}\n"
                 f"Email: {user_data['email']}\n"
                 f"Program: {user_data['program']}\n\n"
-                "Your registration has been completed successfully."
+                "You can start a new registration "
+                "using the Start New Registration button."
             )
 
-        elif answer in ["no", "n", "cancel", "cancelled"]:
 
-            user_data.clear()
-            state = "start"
+        elif answer in [
+            "no",
+            "n",
+            "cancel"
+        ]:
+
+            reset_chat()
+
 
             return (
-                "Registration cancelled.\n\n"
-                "You can start a new registration anytime."
+                "Registration cancelled. "
+                "You can start again anytime."
             )
+
 
         else:
 
@@ -301,48 +344,59 @@ def chat(message):
             )
 
 
-    # =====================================================
     # COMPLETED
-    # =====================================================
 
     elif state == "completed":
 
+        if is_greeting(message):
+
+            return (
+                "Your registration is already completed. "
+                "Use the Start New Registration button "
+                "to begin another registration."
+            )
+
+
         return (
-            "Your registration has already been completed.\n\n"
-            "Thank you."
+            "Your registration has already been completed. "
+            "Use the Start New Registration button "
+            "if you want to register again."
         )
 
 
-    # =====================================================
-    # SAFETY FALLBACK
-    # =====================================================
-
-    return (
-        "Something went wrong with the registration session. "
-        "Please start again."
-    )
-
-
-# =========================================================
-# TERMINAL TEST
-# =========================================================
+# Terminal test
 
 if __name__ == "__main__":
 
-    print("\nAI Registration Assistant")
-    print("Type 'exit' to stop.\n")
+    print()
+
+    print("SARWAJNIY Registration Assistant")
+
+    print("Type exit to stop.")
+
+    print()
+
 
     while True:
 
         user_message = input("You: ")
 
-        if user_message.strip().lower() == "exit":
 
-            print("Bot: Goodbye.")
+        if user_message.lower() == "exit":
+
+            print(
+                "SARWAJNIY: Goodbye."
+            )
+
             break
 
-        response = chat(user_message)
 
-        print("\nBot:")
-        print(response)
-        print()
+        response = chat(
+            user_message
+        )
+
+
+        print(
+            "SARWAJNIY:",
+            response
+        )
