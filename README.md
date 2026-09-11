@@ -24,7 +24,7 @@ https://www.linkedin.com/in/naina-kumari-06373132b/
 
 ---
 
-# 1. Project Introduction
+#  Project Introduction
 
 Online registration systems are widely used for internships, scholarships, government schemes, educational programs, applications, and other services.
 
@@ -54,7 +54,7 @@ The user can then provide their name, email, and program information through the
 
 ---
 
-# 2. Problem Statement
+#  Problem Statement
 
 Traditional online registration systems require users to manually locate and fill multiple fields.
 
@@ -72,7 +72,7 @@ Therefore, there is a need for an intelligent assistant that can understand user
 
 ---
 
-# 3. Proposed Solution
+#  Proposed Solution
 
 SARVAJANEEYA solves this problem using an AI-powered conversational interface.
 
@@ -95,7 +95,7 @@ This creates a simple and interactive registration experience.
 
 ---
 
-# 4. Main Objective
+#  Main Objective
 
 The main objective of SARVAJANEEYA is to develop an intelligent registration assistant that can:
 
@@ -112,7 +112,7 @@ The main objective of SARVAJANEEYA is to develop an intelligent registration ass
 
 ---
 
-# 5. Key Features
+# Key Features
 
 ## Conversational Registration
 
@@ -197,7 +197,7 @@ The frontend is designed to work on:
 
 ---
 
-# 6. Registration Workflow
+#  Registration Workflow
 
 The complete registration workflow is:
 
@@ -233,7 +233,7 @@ Registration completed
 
 ---
 
-# 7. Example Conversation
+#  Example Conversation
 
 ```text
 User:
@@ -259,7 +259,7 @@ Your email has been verified.
 Which internship or program would you like to register for?
 
 User:
-AI Registration Assistant
+SARVAJANEEYA Registration Assistant
 
 SARVAJANEEYA:
 Please confirm your registration details.
@@ -284,7 +284,7 @@ Program: AI Registration Assistant
 
 ---
 
-# 8. System Architecture
+#  System Architecture
 
 SARVAJANEEYA follows a simple layered architecture.
 
@@ -345,7 +345,7 @@ SARVAJANEEYA follows a simple layered architecture.
 
 ---
 
-# 10. Backend
+#  Backend
 
 The backend is developed using **Python and Flask**.
 
@@ -362,7 +362,7 @@ The backend is responsible for:
 
 ---
 
-# 11. Backend API
+#  Backend API
 
 ## Home Endpoint
 
@@ -424,7 +424,7 @@ Example response:
 
 ---
 
-# 12. Frontend
+#  Frontend
 
 The frontend is developed using:
 
@@ -448,7 +448,7 @@ The frontend communicates with the Flask backend using the JavaScript `fetch()` 
 
 ---
 
-# 13. Frontend to Backend Communication
+#  Frontend to Backend Communication
 
 The communication flow is:
 
@@ -472,7 +472,7 @@ Voice assistant speaks response
 
 ---
 
-# 14. Artificial Intelligence and Machine Learning
+# Artificial Intelligence and Machine Learning
 
 SARVAJANEEYA uses Machine Learning for intent recognition.
 
@@ -506,7 +506,7 @@ Program Intent
 
 ---
 
-# 15. NLP Pipeline
+#  NLP Pipeline
 
 The Natural Language Processing pipeline performs preprocessing before classification.
 
@@ -536,7 +536,7 @@ The NLP module uses NLTK techniques to process text.
 
 ---
 
-# 16. Intent Recognition
+#  Intent Recognition
 
 Intent recognition determines what the user wants.
 
@@ -577,7 +577,7 @@ Example:
 
 ---
 
-# 17. Entity Extraction
+#  Entity Extraction
 
 The system extracts important entities from user messages.
 
@@ -623,7 +623,7 @@ The extracted information is stored in the current conversation state.
 
 ---
 
-# 18. Data Validation
+#  Data Validation
 
 Validation ensures that incorrect information is not accepted.
 
@@ -653,7 +653,7 @@ The system ensures that the program field is not empty.
 
 ---
 
-# 19. Conversation State Management
+#  Conversation State Management
 
 The chatbot uses states to control the registration flow.
 
@@ -674,7 +674,7 @@ For example, when the system is in the `email` state, the user's input is interp
 
 ---
 
-# 20. Registration Data
+#  Registration Data
 
 Registration information is collected during the conversation.
 
@@ -692,7 +692,7 @@ After confirmation, the registration is saved and a registration ID is generated
 
 ---
 
-# 21. Data Storage
+#  Data Storage
 
 Registration data can be stored in JSON format.
 
@@ -717,7 +717,7 @@ For a large-scale production system, a database such as PostgreSQL or MySQL woul
 
 ---
 
-# 22. Voice Assistant
+#  Voice Assistant
 
 SARVAJANEEYA includes browser-based voice output.
 
@@ -745,7 +745,7 @@ The voice functionality runs directly in the user's browser.
 
 ---
 
-# 23. User Experience
+#  User Experience
 
 The interface is designed to keep the registration process simple.
 
@@ -762,7 +762,7 @@ Important UX principles include:
 
 ---
 
-# 24. Accessibility Considerations
+# Accessibility Considerations
 
 SARVAJANEEYA attempts to improve accessibility by providing:
 
@@ -777,7 +777,7 @@ Voice support can be especially useful for users who prefer listening to instruc
 
 ---
 
-# 25. Project Structure
+#  Project Structure
 
 ```text
 AI-Registration-Assistant/
@@ -802,7 +802,7 @@ AI-Registration-Assistant/
 
 ---
 
-# 26. File Description
+#  File Description
 
 | File | Purpose |
 |---|---|
@@ -819,7 +819,7 @@ AI-Registration-Assistant/
 
 ---
 
-# 27. Installation
+#  Installation
 
 ## Step 1: Clone Repository
 
@@ -835,7 +835,7 @@ cd AI-Registration-Assistant
 
 ---
 
-# 28. Create Virtual Environment
+#  Create Virtual Environment
 
 Windows:
 
@@ -851,7 +851,7 @@ venv\Scripts\activate
 
 ---
 
-# 29. Install Dependencies
+#  Install Dependencies
 
 ```bash
 pip install -r requirements.txt
@@ -868,7 +868,7 @@ gunicorn
 
 ---
 
-# 30. Run the Application Locally
+#  Run the Application Locally
 
 Start the Flask application:
 
@@ -880,7 +880,7 @@ The application can then be opened in a browser using the local Flask address sh
 
 ---
 
-# 31. Using the Application
+#  Using the Application
 
 Follow these steps:
 
@@ -897,7 +897,7 @@ Follow these steps:
 
 ---
 
-# 32. Restart Commands
+#  Restart Commands
 
 The chatbot supports restarting through commands such as:
 
@@ -912,7 +912,7 @@ The user can also use the **Start New Registration** button from the interface.
 
 ---
 
-# 33. Error Handling
+#  Error Handling
 
 The system handles common invalid inputs.
 
@@ -952,7 +952,7 @@ This helps prevent incomplete or incorrect registrations.
 
 ---
 
-# 34. Screenshots
+# Screenshots
 
 Project screenshots can be stored inside:
 
@@ -981,19 +981,19 @@ Example Markdown:
 
 ---
 
-# 35. Project Screenshots
+#  Project Screenshots
 
 ## Login / Landing Interface
 
-![SARVAJANEEYA Login Interface](screenshots/login.png)
+![SARVAJANEEYA login Interface](screenshots/login.png)
 
 ## Registration Interface
 
-![SARVAJANEEYA Registration Interface](screenshots/registration.png)
+![SARVAJANEEYA registration Interface](screenshots/registration.png)
 
 ---
 
-# 36. Deployment
+#  Deployment
 
 SARVAJANEEYA can be deployed as a web application using Render.
 
@@ -1013,7 +1013,7 @@ gunicorn app:app
 
 ---
 
-# 37. Deployment Architecture
+#  Deployment Architecture
 
 ```text
 GitHub Repository
@@ -1049,7 +1049,7 @@ After pushing changes, the connected Render service can deploy the updated proje
 
 ---
 
-# 39. Advantages
+#  Advantages
 
 | Feature | Traditional Form | SARVAJANEEYA |
 |---|---|---|
@@ -1065,7 +1065,7 @@ After pushing changes, the connected Render service can deploy the updated proje
 
 ---
 
-# 40. Target Users
+#  Target Users
 
 SARVAJANEEYA can be useful for:
 
@@ -1079,7 +1079,7 @@ SARVAJANEEYA can be useful for:
 
 ---
 
-# 41. Potential Applications
+#  Potential Applications
 
 The same architecture can be extended to:
 
@@ -1095,7 +1095,7 @@ The same architecture can be extended to:
 
 ---
 
-# 42. Security Considerations
+# Security Considerations
 
 The current project is a prototype.
 
@@ -1116,7 +1116,7 @@ Sensitive user information should not be exposed publicly.
 
 ---
 
-# 43. Current Limitations
+#  Current Limitations
 
 The current prototype has some limitations:
 
@@ -1130,7 +1130,7 @@ The current prototype has some limitations:
 
 ---
 
-# 44. Future Scope
+#  Future Scope
 
 The project can be enhanced with:
 
@@ -1214,7 +1214,7 @@ The system can track:
 
 ---
 
-# 45. Scalability
+#  Scalability
 
 The current application is suitable as a prototype and educational project.
 
@@ -1240,7 +1240,7 @@ This architecture would allow the application to support a larger number of user
 
 ---
 
-# 46. Learning Outcomes
+#  Learning Outcomes
 
 This project provides practical experience in:
 
@@ -1269,7 +1269,7 @@ This project provides practical experience in:
 
 ---
 
-# 47. Complete Technology Flow
+# Complete Technology Flow
 
 ```text
                 USER
@@ -1316,7 +1316,7 @@ This project provides practical experience in:
 
 ---
 
-# 48. Why SARVAJANEEYA?
+#  Why SARVAJANEEYA?
 
 The project focuses on making digital registration more accessible and understandable.
 
@@ -1328,7 +1328,7 @@ This approach can reduce confusion and make online registration more user-friend
 
 ---
 
-# 49. Project Outcome
+#  Project Outcome
 
 SARVAJANEEYA successfully demonstrates how AI and conversational interfaces can be combined with traditional web technologies to create an intelligent registration system.
 
@@ -1360,7 +1360,7 @@ into a single application.
 
 ---
 
-# 50. Project Summary
+#  Project Summary
 
 **SARVAJANEEYA** is an AI-powered registration assistant that simplifies online registration through conversational interaction.
 
@@ -1384,7 +1384,7 @@ The assistant can understand basic user intents, collect registration informatio
 
 ---
 
-# 51. Author
+#  Author
 
 ## Naina Kumari
 
@@ -1404,7 +1404,7 @@ https://ai-registration-assistant-prra.onrender.com
 
 ### GitHub Repository
 
-https://github.com/Naina137/AI-Registration-Assistant
+https://github.com/Naina137/SARVAJEENYA-Registration-Assistant.git
 
 ### LinkedIn
 
@@ -1412,7 +1412,7 @@ https://www.linkedin.com/in/naina-kumari-06373132b/
 
 ---
 
-# 53. Acknowledgement
+#  Acknowledgement
 
 This project was developed as a practical implementation of Artificial Intelligence, Natural Language Processing, Machine Learning, and web application development concepts.
 
@@ -1420,7 +1420,7 @@ The project helped in understanding how AI-based conversational systems can be i
 
 ---
 
-# 54. License
+# License
 
 This project is created for educational and demonstration purposes.
 
