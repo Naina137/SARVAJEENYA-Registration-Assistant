@@ -16,7 +16,7 @@ https://ai-registration-assistant-prra.onrender.com
 
 ## GitHub Repository
 
-https://github.com/Naina137/AI-Registration-Assistant
+https://github.com/Naina137/SARVAJEENYA-Registration-Assistant.git
 
 ## LinkedIn
 
@@ -985,11 +985,11 @@ Example Markdown:
 
 ## Login / Landing Interface
 
-![SARVAJANEEYA login Interface](screenshots/login.png)
+![SARVAJANEEYA Login Interface](login.png)
 
 ## Registration Interface
 
-![SARVAJANEEYA registration Interface](screenshots/registration.png)
+![SARVAJANEEYA Registration Interface](registration.png)
 
 ---
 
@@ -1033,7 +1033,7 @@ User Browser
 
 ---
 
-# 38. GitHub Workflow
+#  GitHub Workflow
 
 The project is maintained using Git and GitHub.
 
@@ -1396,7 +1396,7 @@ https://www.linkedin.com/in/naina-kumari-06373132b/
 
 ---
 
-# 52. Project Links
+#  Project Links
 
 ### Live Application
 
